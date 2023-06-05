@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>iBooks Grid</title>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      grid-gap: 20px;
+    }
+
+    .book {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      height: 300px; /* Set a fixed height for the book container */
+    }
+
+    .book img {
+      height: 100%; /* Make the image fill the height of the container */
+      object-fit: contain; /* Maintain aspect ratio and fit within the container */
+      margin-bottom: 10px;
+    }
+
+    .book-title {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="grid">
+    {{range .}}
+      <div class="book">
+        <img src="{{.Image}}" alt="books2/{{.Image}} not showing">
+        <div class="book-title">{{.Title}}</div>
+      </div>
+    {{end}}
+  </div>
+</body>
+</html>
